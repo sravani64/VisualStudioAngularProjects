@@ -1,0 +1,36 @@
+﻿<div>
+    <span style="color:orangered;">{{UserName}}</span>
+    <a ng-click="goto('about')" href="">About</a>
+    <a ng-click="goto('technology')" href="">technology</a>
+    <a ng-click="goto('home')" href="">Home</a>
+    <a ng-click="goto('employee')" href="">Employee</a>
+    <a ng-click="goto('login')" href="">LogOut</a>
+</div>
+
+<br />
+<br />
+<br />
+<label for="checkbox"><input id="checkbox" type="checkbox" ng-model="togglename">Toggle Column</label>
+<table class="container">
+    <thead>
+        <tr>
+            <th ng_hide="togglename">Technology</th>
+            <th>Likes</th>
+            <th>Disikes</th>
+            <th>Likes/Dislikes</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="technology in technologies " class="table">{{message}}
+        <tr >
+            <td ng_hide="togglename">{{technology.name}}</td>
+            <td>{{technology.likes}}</td>
+            <td>{{technology.dislikes}}</td>
+            <td>
+                <input type="button" value="Likes" ng-click="incrementLikes(technology)">
+                <input type="button" value="Dislikes" ng-click="decrementDisLikes(technology)" />
+            </td>
+        </tr>
+    
+    </tbody>
+</table>
+ 

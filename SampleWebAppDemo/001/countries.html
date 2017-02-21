@@ -1,0 +1,9 @@
+﻿<form class="form-inline">
+    <div class="form-group">
+        <label>Enter country</label>
+        <input type="text" ng-model="searchCountry"/>
+        </div>
+        <button class="btn btn-primary" ng-click="doSearch()">Search</button>
+    </form>
+<div country-details ng-if="country.code != undefined"></div>
+<a href="countries.html">countries.html</a>

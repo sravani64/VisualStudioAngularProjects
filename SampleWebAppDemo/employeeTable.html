@@ -1,0 +1,41 @@
+﻿<div>
+    <span style="color:blue;">{{UserName}}</span>
+    <a ng-click="goto('about')" href="">About</a>
+    <a ng-click="goto('technology')" href="">technology</a>
+    <a ng-click="goto('home')" href="">Home</a>
+    <a ng-click="goto('employee')" href="">Employee</a>
+    <a ng-click="goto('login')" href="">LogOut</a>
+</div>
+<br />
+<br />
+<br />
+<label for="checkbox"><input id="checkbox" type="checkbox" ng-model="togglename">Toggle Column</label>
+<table  class="container">
+    <thead>
+        <tr>
+            <th ng-hide="togglename">Name</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Salary</th>
+            <th>Salary</th>
+            <th>Likes</th>
+            <th>Disikes</th>
+            <th>Likes/Dislikes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="employee in employees | orderBy:sortColumn | filter : searchText">
+            <td ng-hide="togglename">{{employee.name|uppercase}}</td>
+            <td>{{employee.dob | date:dd/mm/yyy }}</td>
+            <td>{{employee.gender | lowercase}}</td>
+            <td>{{employee.salary | number:2}}</td>
+            <td>{{employee.salary | currency}}</td>
+            <td>{{employee.likes}}</td>
+            <td>{{employee.dislikes}}</td>
+            <td>
+                <input type="button" value="Likes" ng-click="incrementLikes(employee)">
+                <input type="button" value="Dislikes" ng-click="decrementDisLikes(employee)" />
+            </td>
+        </tr>
+    </tbody>
+</table>

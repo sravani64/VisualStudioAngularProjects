@@ -1,0 +1,48 @@
+﻿<div>
+    <span style="color:blue;">{{UserName}}</span>
+    <a ng-click="goto('about')" href="">About</a>
+    <a ng-click="goto('technology')" href="">technology</a>
+    <a ng-click="goto('home')" href="">Home</a>
+    <a ng-click="goto('employee')" href="">Employee</a>
+    <a ng-click="goto('login')" href="">LogOut</a>
+</div><br /><br /><br />
+      <label for="checbox" ><input type="checkbox" ng-model="togglename" >Toggle Column</label><br /><br />
+        Rows to Display:<input type="number" step="1" min="0" max="5" ng-model="rowLimit" /><br /><br />
+     
+        OrderBy:
+        <select ng-model="sortColumn">
+            <option value:"name">NameASC</option>
+            <option value:"name">DOBASC</option>
+            <option value:"name">GenderASC</option>
+            <option value:"name">SalaryASC</option>
+        </select><br /><br /><br /><br />
+      <table  class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th ng-hide="togglename">Salary</th>
+                    <th ng-show="togglename">Salary</th>
+                    <th>Likes</th>
+                    <th>Disikes</th>
+                    <th>Likes/Dislikes</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr ng-repeat="employee in employees | orderBy:sortColumn | filter : searchText | limitTo:rowLimit">
+            <td>{{employee.name|uppercase}}</td>
+            <td>{{employee.dob | date:dd/mm/yyy }}</td>
+            <td>{{employee.gender | lowercase}}</td>
+            <td ng-hide="togglename">{{employee.salary | number:3}}</td>
+            <td ng-show="togglename">{{employee.salary | currency}}</td>
+            <td>{{employee.likes}}</td>
+            <td>{{employee.dislikes}}</td>
+            <td>
+                <input type="button" value="Likes" ng-click="incrementLikes(employee)">
+                <input type="button" value="Dislikes" ng-click="decrementDisLikes(employee)" />
+            </td>
+        </tr>
+    </tbody>
+</table>
+ 

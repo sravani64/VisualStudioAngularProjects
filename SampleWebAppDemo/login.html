@@ -1,0 +1,16 @@
+﻿<script type="text/ng-template" id="my_info_msg.html">
+    <strong> tHis is a message</strong>
+</script>
+<div class="container">
+    <div my-Info_msg></div>
+    <label>UserName:</label>
+    <input type="text" placeholder="enter username" ng-model="usn" /><br /><br />
+    <label>PassWord:</label>
+    <input type="password" placeholder="enter password" ng-model="pwd" /><br /><br />
+    <input type="button" value="Submit" ng-click="submit()" />
+
+    <div>
+        <span style="color:red;">{{response}}</span>
+    </div>
+</div>
+
